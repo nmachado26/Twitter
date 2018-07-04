@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Tweet.h"
 #import "User.h"
+#import "APIManager.h"
 
 @interface TweetCell : UITableViewCell
 
@@ -27,8 +28,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UIImageView *verifiedIcon;
 @property (weak, nonatomic) IBOutlet UILabel *commentsLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *retweetIcon;
-@property (weak, nonatomic) IBOutlet UIImageView *favoriteIcon;
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+@property (weak, nonatomic) IBOutlet UIButton *retweetButton;
+
 
 
 //methods
