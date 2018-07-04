@@ -83,10 +83,10 @@
     return self.tweets.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 160;
-    //UITableViewAutomaticDimension
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return 160;
+//    //UITableViewAutomaticDimension
+//}
 
 
 
