@@ -46,6 +46,15 @@
     //self.favoriteLogo = self.tweet.favorited; //if true, favorite is the red heart now. If not, it is gray.
 }
 
+- (IBAction)didTapRetweet:(id)sender {
+    
+}
+
+- (IBAction)didTapFavorite:(id)sender {
+    
+}
+
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
