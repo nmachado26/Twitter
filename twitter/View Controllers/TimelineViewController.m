@@ -11,6 +11,9 @@
 #import "TweetCell.h"
 #import "Tweet.h"
 #import "ComposeViewController.h"
+#import "ProfileViewController.h"
+#import "AppDelegate.h"
+#import "LoginViewController.h"
 
 @interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate, ComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -68,8 +71,8 @@
     UINavigationController *navigationController = [segue destinationViewController];
     ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
     composeController.delegate = self;
+   // segue.identifier -
 }
-
 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -77,6 +80,10 @@
     Tweet *tweet = self.tweets[indexPath.row];
     [cell configureTweetCell:tweet];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -88,13 +95,37 @@
 //    //UITableViewAutomaticDimension
 //}
 
-
-
 - (void)didTweet:(Tweet *)tweet {
     [self.tweets addObject:tweet];
     [self.refreshControl beginRefreshing];
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
 }
+
+- (IBAction)profileButtonPressed:(id)sender {
+    UITableViewCell *tappedCell = sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+    Tweet *tweet = self.tweets[indexPath.row];
+    
+    
+//    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    ProfileViewController *profileViewController = [storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
+//    appDelegate.window.rootViewController = profileViewController;
+//    profileViewController.user = tweet.user;
+//
+    // get the viewcontroller instance - either the nav or the VC
+    ProfileViewController *profileViewController = [storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
+    profileViewController.user = tweet.user;
+   // UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:profileViewController];
+    
+    // push onto stack
+    [self.navigationController pushViewController:profileViewController animated:YES];
+    
+    // present
+    
+    //[self presentViewController:navController animated:YES completion:nil];
+}
+
 
 @end

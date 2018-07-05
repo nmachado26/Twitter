@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D02B4F720EEA68D00A6BE4C /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D02B4F620EEA68D00A6BE4C /* ProfileViewController.m */; };
 		4D2A18F620EBEDF200D200AF /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2A18F520EBEDF200D200AF /* TweetCell.m */; };
 		4D2A18F920EC381D00D200AF /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2A18F820EC381D00D200AF /* ComposeViewController.m */; };
 		4D97302020EACB1900B3EA35 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D97301F20EACB1900B3EA35 /* User.m */; };
@@ -26,6 +27,8 @@
 /* Begin PBXFileReference section */
 		1397EA94AE1DE5F26C1724FD /* Pods-twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-twitter/Pods-twitter.release.xcconfig"; sourceTree = "<group>"; };
 		43D6142D6F34C1AE98EE4951 /* libPods-twitter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-twitter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D02B4F520EEA68D00A6BE4C /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		4D02B4F620EEA68D00A6BE4C /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		4D2A18F420EBEDF200D200AF /* TweetCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TweetCell.h; sourceTree = "<group>"; };
 		4D2A18F520EBEDF200D200AF /* TweetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TweetCell.m; sourceTree = "<group>"; };
 		4D2A18F720EC381D00D200AF /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				6AD2790820BCC04D0085BC29 /* TimelineViewController.m */,
 				4D2A18F720EC381D00D200AF /* ComposeViewController.h */,
 				4D2A18F820EC381D00D200AF /* ComposeViewController.m */,
+				4D02B4F520EEA68D00A6BE4C /* ProfileViewController.h */,
+				4D02B4F620EEA68D00A6BE4C /* ProfileViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 				4D97302320EACB4700B3EA35 /* Tweet.m in Sources */,
 				6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */,
 				6AD278DA20BC4B950085BC29 /* AppDelegate.m in Sources */,
+				4D02B4F720EEA68D00A6BE4C /* ProfileViewController.m in Sources */,
 				6AD278F620BCB68B0085BC29 /* APIManager.m in Sources */,
 				6AD2790920BCC04D0085BC29 /* TimelineViewController.m in Sources */,
 			);
@@ -405,7 +411,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PG4FD326ZC;
 				INFOPLIST_FILE = twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -423,7 +429,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PG4FD326ZC;
 				INFOPLIST_FILE = twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

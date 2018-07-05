@@ -18,6 +18,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+   // self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)configureTweetCell:(Tweet *)tweet {
@@ -28,19 +29,21 @@
     if (self.profilePicture != nil) {
         NSURL *url = [NSURL URLWithString:tweet.user.profilePictureURLString];
         [self.profilePicture setImageWithURL:url];
+        self.profilePicture.layer.cornerRadius = 20;
+        self.profilePicture.clipsToBounds = true;
     }
     self.contentLabel.text = self.tweet.text;
     self.likesLabel.text = [NSString stringWithFormat:@"%d",self.tweet.favoriteCount];
     self.retweetsLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
     self.dateLabel.text = self.tweet.createdAtString;
-    if(self.tweet.retweetedByUser){
-        self.verifiedIcon.image = [UIImage imageNamed:@"verified_icon"];
+    if(self.tweet.user.verified){
+        [self.verifiedIcon setImage:[UIImage imageNamed:@"verified_icon"]];
     }
     if(self.tweet.retweeted){
-        self.retweetButton.imageView.image = [UIImage imageNamed:@"retweet-icon-green"];
+        [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon-green"] forState:UIControlStateNormal];
     }
     if(self.tweet.favorited){
-        self.favoriteButton.imageView.image = [UIImage imageNamed:@"favor-icon-red"];
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal];
     }
     //self.userRetweetedLabel = self.tweet.retweetedByUser;
     //self.retweetsLogo = self.tweet.retweeted; //if true, retweet logo is the green logo now. If not, it is gray
@@ -52,7 +55,6 @@
     if(self.tweet.favorited == NO){
         self.tweet.favorited = YES;
         self.tweet.favoriteCount += 1;
-    }
     //Update cell UI
     [self refreshData];
     //Send a POST request to the POST favorites/create endpoint
@@ -61,9 +63,11 @@
             NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
         }
         else{
+            [self.favoriteButton setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal];
             NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
         }
     }];
+    }
 }
 
 - (IBAction)didTapRetweet:(id)sender {
@@ -71,7 +75,6 @@
     if(self.tweet.retweeted == NO){
         self.tweet.retweeted = YES;
         self.tweet.retweetCount += 1;
-    }
     //Update cell UI
     [self refreshData];
     //Send a POST request to the POST favorites/create endpoint
@@ -81,22 +84,22 @@
         }
         else{
             NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
+            [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon-green"] forState:UIControlStateNormal];
         }
     }];
+    }
     
 }
 
 - (void)refreshData{
-    
-    
+    self.retweetsLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+    self.likesLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
 }
-
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
+
 
 @end

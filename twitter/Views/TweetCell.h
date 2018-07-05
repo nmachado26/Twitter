@@ -15,7 +15,6 @@
 
 //dictionary
 @property (nonatomic, strong) Tweet *tweet;
-//@property (nonatomic, strong) User *user;
 
 //labels
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel; //might use in fdifferent threads (different parallel processors). Qill keep information in sync, only need atomic when you want to optimize, want to edit that acess

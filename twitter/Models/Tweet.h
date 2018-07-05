@@ -22,6 +22,7 @@
 @property (strong, nonatomic) NSString *createdAtString; // Display date
 // For Retweets
 @property (strong, nonatomic) User *retweetedByUser;  // user who retweeted
+@property (strong, nonatomic) NSDictionary *retweeted_status;
 //user
 
 // Create initializer

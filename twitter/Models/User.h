@@ -14,6 +14,13 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *screenName;
 @property (strong, nonatomic) NSString *profilePictureURLString;
+@property (strong, nonatomic) NSString *idStr;
+@property (strong, nonatomic) NSString *backgroundPictureURLString;
+@property (strong, nonatomic) NSString *bioString;
+@property (strong, nonatomic) NSNumber *followersCount;
+@property (strong, nonatomic) NSNumber *followingCount;
+@property (nonatomic) BOOL verified;
+
 
 // Create initializer
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

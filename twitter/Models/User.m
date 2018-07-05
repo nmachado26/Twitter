@@ -23,6 +23,12 @@
         self.name = dictionary[@"name"];
         self.screenName = dictionary[@"screen_name"];
         self.profilePictureURLString = dictionary[@"profile_image_url_https"];
+        self.idStr = dictionary[@"id_str"];
+        self.backgroundPictureURLString = dictionary[@"profile_banner_url"];
+        self.bioString = dictionary[@"description"];
+        self.verified = dictionary[@"verified"];
+        self.followersCount = dictionary[@"followers_count"];
+        self.followingCount = dictionary[@"friend_count"];
     }
     return self;
 }

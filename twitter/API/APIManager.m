@@ -97,7 +97,7 @@ static NSString * const consumerSecret = @"EBoxc323y4TuIdgSNcqpYtvEBRjKec9C4LbOt
 
 - (void)retweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion{
     
-    NSString *urlString = @"1.1/statuses/retweet/:id.json";
+    NSString *urlString = @"1.1/statuses/retweet.json";
     NSDictionary *parameters = @{@"id": tweet.idStr};
     [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable tweetDictionary) {
         Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
@@ -107,5 +107,44 @@ static NSString * const consumerSecret = @"EBoxc323y4TuIdgSNcqpYtvEBRjKec9C4LbOt
     }];
 }
 
+//- (void)unretweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion{
+//    NSString *originalTweetID;
+//    if(tweet.retweeted == false){
+//        return;
+//    }
+//    else{
+//        if(tweet.retweeted_status == nil){
+//            originalTweetID = tweet.idStr;
+//        }
+//        else{
+//            originalTweetID = tweet.retweeted_status[@"id_str"];
+//        }
+//    }
+//    NSString *getString = [[@"https://api.twitter.com/1.1/statuses/show/" stringByAppendingString:originalTweetID] stringByAppendingString:@"json?include_my_retweet=1"];
+//    Tweet *fullTweet = [self GET:getString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//         NSString *retweetID = fullTweet.retweetedByUser.idStr;
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//
+//    }];
+//}
+
+/*
+function unreweet(tweet):
+// step 1
+if tweet.retweeted is false
+return or error // you cannot unretweet a tweet that has not retweeted
+else
+if tweet.retweeted_status is empty
+let original_tweet_id = tweet.id_str
+else // tweet was itself a retweet
+let original_tweet_id = tweet.retweeted_status.id_str
+
+// step 2
+let full_tweet = GET("https://api.twitter.com/1.1/statuses/show/" + original_tweet_id + "json?include_my_retweet=1")
+let retweet_id = full_tweet.current_user_retweet.id_str
+
+// step 3
+POST("https://api.twitter.com/1.1/statuses/destroy/" + retweet_id + ".json")
+*/
 
 @end
