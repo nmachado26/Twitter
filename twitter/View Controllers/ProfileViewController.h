@@ -6,10 +6,15 @@
 //  Copyright © 2018 Emerson Malca. All rights reserved.
 //
 
+//#import <UIKit/UIKit.h>
+//#import "TimelineViewController.h"
+//#import "User.h"
+//#import "Tweet.h"
+
 #import <UIKit/UIKit.h>
+#import "User.h"
 #import "TimelineViewController.h"
 #import "Tweet.h"
-#import "User.h"
 
 @interface ProfileViewController : UIViewController
 @property (nonatomic, strong) User *user;

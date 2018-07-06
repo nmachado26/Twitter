@@ -26,7 +26,7 @@
 @implementation TimelineViewController
 
 - (void)viewWillAppear:(BOOL)animated{
-    //[self fetchTweets];
+    [self fetchTweets];
    // [self.tableView reloadData];
 }
 

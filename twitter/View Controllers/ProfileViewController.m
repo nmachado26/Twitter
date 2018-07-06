@@ -13,6 +13,7 @@
 @interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *userTweets;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
 @implementation ProfileViewController
@@ -52,6 +53,12 @@
         [self.backgroundImage setImageWithURL:url];
         //self.backgroundImage.clipsToBounds = true;
     }
+    
+    // Initialize a UIRefreshControl
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchTweets) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,7 +78,7 @@
             NSLog(@"Error getting home timeline: %@", error.localizedDescription);
         }
         [self.tableView reloadData];
-       // [self.refreshControl endRefreshing];
+        [self.refreshControl endRefreshing];
     }];
 }
 
@@ -87,7 +94,7 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell" forIndexPath:indexPath];    //cell.tweet = self.tweets[indexPath.row];
-    cell.delegate = self;
+   // cell.delegate = self;
     Tweet *tweet = self.userTweets[indexPath.row];
     [cell configureTweetCell:tweet];
     return cell;
