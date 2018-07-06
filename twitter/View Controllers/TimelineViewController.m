@@ -75,26 +75,18 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if([segue.identifier isEqualToString:@"detailsSegue"]){
-//        UITableViewCell *tappedCell = sender;
-//        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-//        Tweet *tweet = self.tweets[indexPath.row];
         DetailsViewController *detailsViewController = (DetailsViewController*)[segue destinationViewController];
         detailsViewController.tweetCell = sender;
     }
     else if([segue.identifier isEqualToString:@"profileSegue"]){
-//        UITableViewCell *tappedCell = sender;
-//        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-//        Tweet *tweet = self.tweets[indexPath.row];
         ProfileViewController *profileViewController = (ProfileViewController*)[segue destinationViewController];
-      //  profileViewController.tweetCell = sender;
         profileViewController.user = sender;
         profileViewController.settingLabel.text = @"Settings";
     }
-    else{
+    else{ //compose
     UINavigationController *navigationController = [segue destinationViewController];
     ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
     composeController.delegate = self;
-   // segue.identifier -
     }
 }
 

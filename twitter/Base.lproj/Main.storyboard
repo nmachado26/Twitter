@@ -604,7 +604,7 @@
             </objects>
             <point key="canvasLocation" x="2573.5999999999999" y="809.14542728635683"/>
         </scene>
-        <!--Compose View Controller-->
+        <!--New Tweet-->
         <scene sceneID="P2R-HX-Wtq">
             <objects>
                 <viewController id="Ixx-3a-OwC" customClass="ComposeViewController" sceneMemberID="viewController">
@@ -612,18 +612,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="What's happening?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="q3m-pa-z5H">
-                                <rect key="frame" x="0.0" y="64" width="375" height="243"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q3m-pa-z5H">
+                                <rect key="frame" x="62" y="64" width="297" height="243"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="What's happening?">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TwitterLogo" translatesAutoresizingMaskIntoConstraints="NO" id="3mo-fi-D3S">
+                                <rect key="frame" x="16" y="73" width="46" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="vSx-ty-h7M"/>
                     </view>
-                    <navigationItem key="navigationItem" id="geJ-sZ-KuX">
+                    <navigationItem key="navigationItem" title="New Tweet" id="geJ-sZ-KuX">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="Sqc-PW-pcd">
                             <connections>
                                 <action selector="backButtonClicked:" destination="Ixx-3a-OwC" id="oTk-UW-qpu"/>
@@ -637,13 +647,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="backButton" destination="Sqc-PW-pcd" id="cmg-XK-j5O"/>
+                        <outlet property="profilePic" destination="3mo-fi-D3S" id="xnZ-Hy-pfC"/>
                         <outlet property="tweetButton" destination="xXJ-ps-Ne6" id="fEg-1L-fOW"/>
                         <outlet property="tweetTextBox" destination="q3m-pa-z5H" id="OKO-EX-N45"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mV-1p-qbf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3423" y="37"/>
+            <point key="canvasLocation" x="3421.5999999999999" y="36.431784107946029"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WUT-Ke-VeR">
@@ -856,6 +867,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="TwitterLogo" width="120" height="120"/>
         <image name="TwitterLogoBlue" width="200" height="200"/>
         <image name="back-icon" width="30" height="30"/>
         <image name="edit-icon" width="30" height="27"/>

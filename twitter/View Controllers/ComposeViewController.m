@@ -11,6 +11,7 @@
 
 @interface ComposeViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tweetButton;
+@property (weak, nonatomic) IBOutlet UIImageView *profilePic;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 
 @end
@@ -19,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.profilePic.layer.cornerRadius = 30;
+    self.profilePic.clipsToBounds = true;
     // Do any additional setup after loading the view.
 }
 
