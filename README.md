@@ -2,7 +2,7 @@
 
 **Twitter** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: **X** hours spent in total
+Time spent: **19** hours spent in total
 
 ## User Stories
 
@@ -48,7 +48,7 @@ The following **additional** features are implemented:
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1. Discussing delegates and its implementation and uses with peers would be extremely helpful for me, as this is one of the topics that I am having a hard time understanding its functionality and uses in the code. 
-2. I also want to discuss constraints and its manipulation with labels, especially as they can vary in size.
+2. I also want to discuss constraints and its manipulation with labels, especially as they can vary in size. 
 
 ## Video Walkthrough
 
@@ -60,7 +60,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app. I had some tough challenges while building this app. Firstly, my autolayout was not conforming, and I spent a significant amount of time learning the intricacies and secrets of autolayout to help with my app. Also, the flow of information and API manipulation was a definitely difficult concept, which I decided to focus on this project to learn as much as possible. With this focus and a lot of code study, I have a better understanding of GET and POST API implementations, but I still need further learning in these topics, as I definitely do not feel entirely confident yet. I am hoping to emphasize this next week also.
+Describe any challenges encountered while building the app. I had some tough challenges while building this app. Firstly, my autolayout was not conforming, and I spent a significant amount of time learning the intricacies and secrets of autolayout to help with my app. Also, the flow of information and API manipulation was a definitely difficult concept, which I decided to focus on this project to learn as much as possible. With this focus and a lot of code study, I have a better understanding of GET and POST API implementations, but I still need further learning in these topics, as I definitely do not feel entirely confident yet. I am hoping to emphasize this during the coming next week also. I also want to play around and learn about the flow and the pros and cons of different implementations (segue styles/manners, types of push/modal, etc) that would be best for the situation and goal that I have.
 
 ## Credits
 
@@ -70,7 +70,7 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 ## License
 
-Copyright [yyyy] [name of copyright owner]
+Copyright [2018] [Nicolas Machado]
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

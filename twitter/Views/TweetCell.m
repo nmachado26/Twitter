@@ -20,8 +20,6 @@
     UITapGestureRecognizer *profileTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapUserProfile:)];
     [self.profilePicture addGestureRecognizer:profileTapGestureRecognizer];
     [self.profilePicture setUserInteractionEnabled:YES];
-    // Initialization code
-   // self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)configureTweetCell:(Tweet *)tweet {
@@ -54,9 +52,6 @@
     else{
         [self.favoriteButton setImage:[UIImage imageNamed:@"favor-icon"] forState:UIControlStateNormal];
     }
-    //self.userRetweetedLabel = self.tweet.retweetedByUser;
-    //self.retweetsLogo = self.tweet.retweeted; //if true, retweet logo is the green logo now. If not, it is gray
-    //self.favoriteLogo = self.tweet.favorited; //if true, favorite is the red heart now. If not, it is gray.
 }
 - (IBAction)didTapFavorite:(id)sender {
     NSLog(@"favorite button pressed");
