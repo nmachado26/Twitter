@@ -57,7 +57,7 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
-        <!--Home Timeline-->
+        <!--Home-->
         <scene sceneID="1Tv-nE-1AW">
             <objects>
                 <viewController storyboardIdentifier="TimelineViewController" id="Lbl-k5-U4i" customClass="TimelineViewController" sceneMemberID="viewController">
@@ -123,12 +123,16 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kCY-8R-3Qh" userLabel="Profile Picture">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kCY-8R-3Qh" userLabel="Profile Picture">
                                                     <rect key="frame" x="12" y="16" width="37" height="37"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="37" id="1kj-hr-wuB"/>
                                                         <constraint firstAttribute="width" constant="37" id="Yxl-1p-QGX"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="py2-Ne-fme" appends="YES" id="egy-gM-683"/>
+                                                    </connections>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ULF-7G-Fz5" userLabel="Verified icon">
                                                     <rect key="frame" x="252" y="17" width="15" height="15"/>
@@ -251,7 +255,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ugE-Ul-H9I"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home Timeline" id="MOc-fV-EZE">
+                    <navigationItem key="navigationItem" title="Home" id="MOc-fV-EZE">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="profile-Icon" id="5sU-zo-1NK" userLabel="profile Button">
                             <connections>
                                 <action selector="profileButtonPressed:" destination="Lbl-k5-U4i" id="SOa-69-KIN"/>
@@ -278,6 +282,11 @@
                 <tapGestureRecognizer id="JPo-GK-Egw" userLabel="TapGestureRecognizer favorite button">
                     <connections>
                         <action selector="didTapFavorite:" destination="nD6-nc-pLM" id="8y0-17-sXX"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="py2-Ne-fme" userLabel="Tap Gesture Recognizer to profile">
+                    <connections>
+                        <segue destination="wty-Qw-I1d" kind="show" identifier="profileSegue" id="14Q-Jp-F5I"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -372,7 +381,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xjB-oe-2jD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2556" y="805.54722638680664"/>
+            <point key="canvasLocation" x="2575" y="810"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="P2R-HX-Wtq">
@@ -622,24 +631,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTO-cM-mnR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2556" y="37"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="khQ-FJ-d5u">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="njF-Ag-S7x" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Lbb-Jn-dCR">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="wty-Qw-I1d" kind="relationship" relationship="rootViewController" id="UAz-O2-Vdt"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0AJ-hM-FCA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1660" y="806"/>
         </scene>
     </scenes>
     <resources>

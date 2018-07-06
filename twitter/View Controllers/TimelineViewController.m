@@ -73,8 +73,16 @@
 //        UITableViewCell *tappedCell = sender;
 //        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
 //        Tweet *tweet = self.tweets[indexPath.row];
-       DetailsViewController *detailsViewController = (DetailsViewController*)[segue destinationViewController];
+        DetailsViewController *detailsViewController = (DetailsViewController*)[segue destinationViewController];
         detailsViewController.tweetCell = sender;
+    }
+    if([segue.identifier isEqualToString:@"profileSegue"]){
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Tweet *tweet = self.tweets[indexPath.row];
+        ProfileViewController *profileViewController = (ProfileViewController*)[segue destinationViewController];
+      //  profileViewController.tweetCell = sender;
+        profileViewController.user = tweet.user;
     }
     else{
     UINavigationController *navigationController = [segue destinationViewController];
