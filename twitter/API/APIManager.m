@@ -107,26 +107,61 @@ static NSString * const consumerSecret = @"EBoxc323y4TuIdgSNcqpYtvEBRjKec9C4LbOt
     }];
 }
 
-//- (void)unretweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion{
-//    NSString *originalTweetID;
+- (void)unretweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion{
+    NSString *originalTweetID;
 //    if(tweet.retweeted == false){
+//         NSLog(@"return bc retweeded == false");
 //        return;
 //    }
 //    else{
-//        if(tweet.retweeted_status == nil){
-//            originalTweetID = tweet.idStr;
-//        }
-//        else{
-//            originalTweetID = tweet.retweeted_status[@"id_str"];
-//        }
-//    }
-//    NSString *getString = [[@"https://api.twitter.com/1.1/statuses/show/" stringByAppendingString:originalTweetID] stringByAppendingString:@"json?include_my_retweet=1"];
-//    Tweet *fullTweet = [self GET:getString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//         NSString *retweetID = fullTweet.retweetedByUser.idStr;
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//
-//    }];
-//}
+         NSLog(@"retweeted");
+        if(tweet.retweeted_status == nil){
+            originalTweetID = tweet.idStr;
+        }
+        else{
+            originalTweetID = tweet.retweeted_status[@"id_str"];
+        }//https://api.twitter.com/1.1/favorites/destroy.json
+//    }//https:api.twitter.com/1.1/statuses/unretweet/:id.json
+    NSString *getString = [[@"https://api.twitter.com/1.1/statuses/unretweet/" stringByAppendingString:originalTweetID] stringByAppendingString:@".json"];
+    NSDictionary *parameters = @{@"id": tweet.idStr};
+    [self POST:getString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable tweetDictionary) {
+        Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
+        completion(tweet, nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        completion(nil, error);
+    }];
+}
+
+- (void)unfavorite:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion{
+    NSString *urlString = @"1.1/favorites/destroy.json";
+    NSDictionary *parameters = @{@"id": tweet.idStr};
+    [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable tweetDictionary) {
+        Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
+        completion(tweet, nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        completion(nil, error);
+    }];
+}
+//https://api.twitter.com/1.1/account/verify_credentials.json
+- (void)getOwnUser:(void(^)(User *user, NSError *error))completion {
+    
+    [self GET:@"1.1/account/verify_credentials.json" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable userDictionary) {
+        User *user= [[User alloc] initWithDictionary:userDictionary];
+        completion(user, nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        User *userFound = nil;
+        
+//        // Fetch tweets from cache if possible
+//        NSData *data = [[NSUserDefaults standardUserDefaults] valueForKey:@"hometimeline_tweets"];
+//        if (data != nil) {
+//            tweetDictionaries = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+       // }
+        
+        completion(userFound, error);
+    }];
+}
 
 /*
 function unreweet(tweet):

@@ -39,7 +39,6 @@
             
         } else {
             NSLog(@"Error tweeting: %@", error.localizedDescription);
-            
         }
         [self dismissViewControllerAnimated:true completion:nil];
     }];
