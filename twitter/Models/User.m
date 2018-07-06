@@ -28,7 +28,8 @@
         self.bioString = dictionary[@"description"];
         self.verified = dictionary[@"verified"];
         self.followersCount = dictionary[@"followers_count"];
-        self.followingCount = dictionary[@"friend_count"];
+        self.followingCount = dictionary[@"friends_count"];
+        self.tweetCount = dictionary[@"statuses_count"];
     }
     return self;
 }

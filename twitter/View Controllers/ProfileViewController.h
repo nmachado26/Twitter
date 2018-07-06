@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "TimelineViewController.h"
-#import "User.h"
 #import "Tweet.h"
+#import "User.h"
 
 @interface ProfileViewController : UIViewController
 @property (nonatomic, strong) User *user;
-
+@property (weak, nonatomic) IBOutlet UILabel *tweetCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *settingLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;

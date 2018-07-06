@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSString *bioString;
 @property (strong, nonatomic) NSNumber *followersCount;
 @property (strong, nonatomic) NSNumber *followingCount;
+@property (strong, nonatomic) NSNumber *tweetCount;
 @property (nonatomic) BOOL verified;
 
 

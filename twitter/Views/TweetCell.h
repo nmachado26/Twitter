@@ -11,6 +11,8 @@
 #import "User.h"
 #import "APIManager.h"
 
+@protocol TweetCellDelegate;
+
 @interface TweetCell : UITableViewCell
 
 //dictionary
@@ -30,8 +32,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 
-
+@property (nonatomic, weak) id<TweetCellDelegate> delegate;
 
 //methods
 - (void)configureTweetCell:(Tweet *)tweet;
+@end
+
+@protocol TweetCellDelegate
+- (void)tweetCell:(TweetCell *) tweetCell didTap: (User *)user;
 @end

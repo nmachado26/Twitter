@@ -17,6 +17,9 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    UITapGestureRecognizer *profileTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapUserProfile:)];
+    [self.profilePicture addGestureRecognizer:profileTapGestureRecognizer];
+    [self.profilePicture setUserInteractionEnabled:YES];
     // Initialization code
    // self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
@@ -24,8 +27,8 @@
 - (void)configureTweetCell:(Tweet *)tweet {
     self.tweet = tweet;
 
-    self.atLabel.text = [@"@" stringByAppendingString:tweet.user.name];
-    self.usernameLabel.text = tweet.user.screenName;
+    self.atLabel.text = [@"@" stringByAppendingString:tweet.user.screenName];
+    self.usernameLabel.text = tweet.user.name;
     if (self.profilePicture != nil) {
         NSURL *url = [NSURL URLWithString:tweet.user.profilePictureURLString];
         [self.profilePicture setImageWithURL:url];
@@ -140,6 +143,11 @@
     [super setSelected:selected animated:animated];
     // Configure the view for the selected state
 }
+
+- (void) didTapUserProfile:(UITapGestureRecognizer *)sender{
+    [self.delegate tweetCell:self didTap:self.tweet.user];
+}
+
 
 
 @end

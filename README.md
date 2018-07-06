@@ -1,6 +1,6 @@
-# Project 4 - *Name of App Here*
+# Project 4 - *Twitter*
 
-**Name of your app** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
+**Twitter** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
 Time spent: **X** hours spent in total
 
@@ -8,21 +8,21 @@ Time spent: **X** hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] User sees app icon in home screen and styled launch screen
-- [ ] User can sign in using OAuth login flow
-- [ ] User can Logout
-- [ ] User can view last 20 tweets from their home timeline
-- [ ] In the home timeline, user can view tweet with the user profile picture, username, tweet text, and timestamp.
-- [ ] User can pull to refresh.
-- [ ] User can tap the retweet and favorite buttons in a tweet cell to retweet and/or favorite a tweet.
+- [YES ] User sees app icon in home screen and styled launch screen
+- [ YES] User can sign in using OAuth login flow
+- [ YES] User can Logout
+- [ YES] User can view last 20 tweets from their home timeline
+- [ YES] In the home timeline, user can view tweet with the user profile picture, username, tweet text, and timestamp.
+- [ YES] User can pull to refresh.
+- [ YES] User can tap the retweet and favorite buttons in a tweet cell to retweet and/or favorite a tweet.
 - [ ] User can compose a new tweet by tapping on a compose button.
-- [ ] Using AutoLayout, the Tweet cell should adjust it's layout for iPhone 7, Plus and SE device sizes as well as accommodate device rotation.
-- [ ] The current signed in user will be persisted across restarts
+- [ YES] Using AutoLayout, the Tweet cell should adjust it's layout for iPhone 7, Plus and SE device sizes as well as accommodate device rotation.
+- [ YES] The current signed in user will be persisted across restarts
 
 The following **optional** features are implemented:
 
-- [ ] Tweet Details Page: User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
-- [ ] User can view their profile in a *profile tab*
+- [ YES] Tweet Details Page: User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
+- [ YES] User can view their profile in a *profile tab*
 - Contains the user header view: picture and tagline
 - Contains a section with the users basic stats: # tweets, # following, # followers
 - [ ] Profile view should include that user's timeline

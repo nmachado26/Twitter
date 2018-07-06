@@ -16,7 +16,7 @@
 #import "LoginViewController.h"
 #import "DetailsViewController.h"
 
-@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate, ComposeViewControllerDelegate>
+@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate, ComposeViewControllerDelegate, TweetCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *tweets;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -24,6 +24,11 @@
 @end
 
 @implementation TimelineViewController
+
+- (void)viewWillAppear:(BOOL)animated{
+    //[self fetchTweets];
+   // [self.tableView reloadData];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -76,13 +81,14 @@
         DetailsViewController *detailsViewController = (DetailsViewController*)[segue destinationViewController];
         detailsViewController.tweetCell = sender;
     }
-    if([segue.identifier isEqualToString:@"profileSegue"]){
-        UITableViewCell *tappedCell = sender;
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-        Tweet *tweet = self.tweets[indexPath.row];
+    else if([segue.identifier isEqualToString:@"profileSegue"]){
+//        UITableViewCell *tappedCell = sender;
+//        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+//        Tweet *tweet = self.tweets[indexPath.row];
         ProfileViewController *profileViewController = (ProfileViewController*)[segue destinationViewController];
       //  profileViewController.tweetCell = sender;
-        profileViewController.user = tweet.user;
+        profileViewController.user = sender;
+        profileViewController.settingLabel.text = @"Settings";
     }
     else{
     UINavigationController *navigationController = [segue destinationViewController];
@@ -95,6 +101,7 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell" forIndexPath:indexPath];    //cell.tweet = self.tweets[indexPath.row];
+    cell.delegate = self;
     Tweet *tweet = self.tweets[indexPath.row];
     [cell configureTweetCell:tweet];
     return cell;
@@ -144,6 +151,7 @@
                 ProfileViewController *profileViewController = [storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
             NSLog(@"getting own user success");
             profileViewController.user = user;
+            profileViewController.settingLabel.text = @"settings";
              [self.navigationController pushViewController:profileViewController animated:YES];
         }
     }];
@@ -157,5 +165,9 @@
     //[self presentViewController:navController animated:YES completion:nil];
 }
 
+
+- (void)tweetCell:(TweetCell *)tweetCell didTap:(User *)user {
+    [self performSegueWithIdentifier:@"profileSegue" sender:user];
+}
 
 @end
