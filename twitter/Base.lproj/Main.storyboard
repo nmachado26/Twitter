@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -208,6 +209,7 @@
                                                 <constraint firstItem="HWo-Hg-hA9" firstAttribute="leading" secondItem="ydN-tk-xyq" secondAttribute="trailing" constant="43" id="lFD-Bl-KIC"/>
                                                 <constraint firstItem="kCY-8R-3Qh" firstAttribute="top" secondItem="FEo-19-HTC" secondAttribute="top" constant="16" id="mdl-vX-4OP"/>
                                                 <constraint firstItem="ULF-7G-Fz5" firstAttribute="top" secondItem="FEo-19-HTC" secondAttribute="top" constant="17" id="oFL-So-CE5"/>
+                                                <constraint firstItem="dkf-ws-ayb" firstAttribute="leading" secondItem="FEo-19-HTC" secondAttribute="leading" constant="59" id="p9Q-lX-P9f"/>
                                                 <constraint firstItem="gNI-xS-n6i" firstAttribute="leading" secondItem="IQj-dx-js8" secondAttribute="trailing" constant="1" id="pc5-63-AHY"/>
                                                 <constraint firstAttribute="bottom" secondItem="XxU-gJ-Bh5" secondAttribute="bottom" constant="10.5" id="rFM-e6-fF8"/>
                                                 <constraint firstAttribute="trailing" secondItem="pPY-cM-pe5" secondAttribute="trailing" constant="4" id="rpo-o5-hs1"/>
@@ -216,7 +218,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="NGV-dz-wGM" secondAttribute="bottom" constant="8.5" id="scY-KJ-mm4"/>
                                                 <constraint firstItem="NGV-dz-wGM" firstAttribute="leading" secondItem="5Zg-cq-rbm" secondAttribute="trailing" constant="42" id="t7q-jU-lHs"/>
                                                 <constraint firstItem="dkf-ws-ayb" firstAttribute="top" secondItem="ULF-7G-Fz5" secondAttribute="bottom" constant="5" id="uec-55-GxW"/>
-                                                <constraint firstItem="dkf-ws-ayb" firstAttribute="top" secondItem="IQj-dx-js8" secondAttribute="bottom" constant="3" id="y0k-w8-ojK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
@@ -254,11 +255,18 @@
                         <viewLayoutGuide key="safeArea" id="ugE-Ul-H9I"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="MOc-fV-EZE">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="profile-Icon" id="5sU-zo-1NK" userLabel="profile Button">
-                            <connections>
-                                <action selector="profileButtonPressed:" destination="Lbl-k5-U4i" id="SOa-69-KIN"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Item" image="profile-Icon" id="5sU-zo-1NK" userLabel="profile Button">
+                                <connections>
+                                    <action selector="profileButtonPressed:" destination="Lbl-k5-U4i" id="SOa-69-KIN"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Logout" id="c40-QY-7bW">
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="Lbl-k5-U4i" id="fby-1C-9kZ"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="new tweet button" image="edit-icon" id="FIS-Li-Vp7">
                             <connections>
                                 <segue destination="kqL-t8-mRo" kind="presentation" id="mpz-ZH-8Fb"/>
