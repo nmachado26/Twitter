@@ -15,7 +15,7 @@ The following **required** functionality is completed:
 - [ YES] In the home timeline, user can view tweet with the user profile picture, username, tweet text, and timestamp.
 - [ YES] User can pull to refresh.
 - [ YES] User can tap the retweet and favorite buttons in a tweet cell to retweet and/or favorite a tweet.
-- [ ] User can compose a new tweet by tapping on a compose button.
+- [ YES] User can compose a new tweet by tapping on a compose button.
 - [ YES] Using AutoLayout, the Tweet cell should adjust it's layout for iPhone 7, Plus and SE device sizes as well as accommodate device rotation.
 - [ YES] The current signed in user will be persisted across restarts
 
