@@ -231,7 +231,6 @@
                                             <outlet property="profilePicture" destination="kCY-8R-3Qh" id="mpW-eH-TZP"/>
                                             <outlet property="retweetButton" destination="NGV-dz-wGM" id="BS6-L8-aPj"/>
                                             <outlet property="retweetsLabel" destination="ydN-tk-xyq" id="mnN-C5-aE0"/>
-                                            <outlet property="textLabel" destination="dkf-ws-ayb" id="KyJ-lh-CKI"/>
                                             <outlet property="usernameLabel" destination="IQj-dx-js8" id="OSZ-oP-qhx"/>
                                             <outlet property="verifiedIcon" destination="ULF-7G-Fz5" id="xvT-yE-hj9"/>
                                             <segue destination="XDi-qm-vRv" kind="show" identifier="detailsSegue" id="qFc-kh-UnM"/>
@@ -559,7 +558,6 @@
                                             <outlet property="profilePicture" destination="Bra-bJ-EI0" id="gne-1Z-a0j"/>
                                             <outlet property="retweetButton" destination="s8z-J0-bPe" id="pN9-sl-6uG"/>
                                             <outlet property="retweetsLabel" destination="LTI-lR-ZNs" id="tbX-hk-v2A"/>
-                                            <outlet property="textLabel" destination="AVe-bs-nq3" id="iOt-FL-AFZ"/>
                                             <outlet property="usernameLabel" destination="eep-2y-EQl" id="4Bl-So-QGW"/>
                                             <outlet property="verifiedIcon" destination="buP-RF-sQu" id="aSm-7V-BNk"/>
                                         </connections>
